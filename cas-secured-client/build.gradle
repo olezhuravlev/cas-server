@@ -8,16 +8,23 @@ group = 'com.testref'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
+def springFrameworkVersion = project.'spring-framework.version'
+def springSecurityCasVersion = project.'spring-security.cas.version'
+
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-security'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testImplementation 'org.springframework.security:spring-security-test'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.security:spring-security-test'
+
+    //compile "org.springframework.security:spring-security-cas:${springSecurityCasVersion}"
+    //compile "org.springframework.security:spring-boot-starter-web:${springSecurityCasVersion}"
+    //compile "org.springframework.boot:spring-boot-starter-web:${springFrameworkVersion}"
 }
 
 test {
-	useJUnitPlatform()
+    useJUnitPlatform()
 }
