@@ -53,6 +53,7 @@ repositories {
 }
 
 def casServerVersion = project.'cas.version'
+def casSupportVersion = project.'casSupport.version'
 def casWebApplicationBinaryName = "cas.war"
 
 project.ext."casServerVersion" = casServerVersion
@@ -82,6 +83,8 @@ dependencies {
     }
     // CAS dependencies/modules may be listed here statically...
     implementation "org.apereo.cas:cas-server-webapp-init:${casServerVersion}"
+    compile "org.apereo.cas:cas-server-support-json-service-registry:${casSupportVersion}"
+    compile "org.apereo.cas:cas-server-support-yaml-service-registry:${casSupportVersion}"
 }
 
 tasks.findByName("jibDockerBuild")
