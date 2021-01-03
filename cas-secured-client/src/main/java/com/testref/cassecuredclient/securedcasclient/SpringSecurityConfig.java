@@ -46,20 +46,32 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+    protected void configure(AuthenticationManagerBuilder auth) {
+        // Tell the builder to user the provider.
         auth.authenticationProvider(authenticationProvider);
     }
 
     @Override
-    protected AuthenticationManager authenticationManager() throws Exception {
+    protected AuthenticationManager authenticationManager() {
+        // The manager should use the provider.
         return new ProviderManager(Arrays.asList(authenticationProvider));
     }
 
+    /**
+     * This filter intercepts the requests and does CAS ticket validation.
+     *
+     * @param serviceProperties
+     * @return
+     * @throws Exception
+     */
     @Bean
     public CasAuthenticationFilter casAuthenticationFilter(ServiceProperties serviceProperties) throws Exception {
+
         CasAuthenticationFilter filter = new CasAuthenticationFilter();
+
         filter.setServiceProperties(serviceProperties);
         filter.setAuthenticationManager(authenticationManager());
+
         return filter;
     }
 }
