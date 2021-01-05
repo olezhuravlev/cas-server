@@ -1,4 +1,4 @@
-package com.testref.cassecuredclient.securedcasclient;
+package com.testref.cassecuredclient;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

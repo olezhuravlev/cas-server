@@ -1,4 +1,4 @@
-package com.testref.cassecuredclient.securedcasclient;
+package com.testref.cassecuredclient;
 
 import org.jasig.cas.client.validation.Cas30ServiceTicketValidator;
 import org.jasig.cas.client.validation.TicketValidator;
