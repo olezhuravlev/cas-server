@@ -1,10 +1,11 @@
-package com.testref.cassecuredclient;
+package com.testref.cassecuredclient.securedcasclient;
 
 import org.jasig.cas.client.validation.Cas30ServiceTicketValidator;
 import org.jasig.cas.client.validation.TicketValidator;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Primary;
 import org.springframework.security.cas.ServiceProperties;
 import org.springframework.security.cas.authentication.CasAuthenticationProvider;
@@ -14,6 +15,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.web.AuthenticationEntryPoint;
 
 @SpringBootApplication
+@ComponentScan(basePackages = {"com.testref", "com.testref.cassecuredclient.controllers"})
 public class CasSecuredClientApplication {
 
     public static void main(String[] args) {
